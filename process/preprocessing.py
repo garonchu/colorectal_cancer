@@ -1,8 +1,10 @@
 import pandas as pd
 from sklearn.preprocessing import OneHotEncoder
 
+
 def load_data(file_path):
     return pd.read_csv(file_path)
+
 
 def one_hot(df):
     """One hot encode categorical columns"""
@@ -20,3 +22,8 @@ def one_hot(df):
     df_numeric = df.select_dtypes(exclude=["object"])  # Keep numeric columns
     df_final = pd.concat([df_numeric, encoded_df], axis=1)  # Final dataset
     return df_final
+
+def split_X_y(df, yCol):
+    X = df.drop(columns=[yCol])
+    y = df[yCol]
+    return X, y
