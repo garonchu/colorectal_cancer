@@ -1,0 +1,5 @@
+data:
+  data_path: "colorectal_cancer_prediction.csv"
+
+model:
+  random_state: 123
